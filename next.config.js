@@ -37,7 +37,7 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline'; " +
               "img-src 'self' data: blob:; " +
               "font-src 'self'; " +
-              "connect-src 'self' https://generativelanguage.googleapis.com https://api.emailjs.com; " +
+              "connect-src 'self' https://generativelanguage.googleapis.com https://api.emailjs.com https://portfolio-lkjh.onrender.com; " +
               "media-src 'self'; " +
               "worker-src 'self' blob:; " +
               "frame-src 'self'; " +
