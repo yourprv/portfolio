@@ -165,6 +165,7 @@ export const PrvAi = () => {
     },
   ]);
   const [isLoading, setIsLoading] = useState(false);
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL?.replace(/\/$/, "");
   const scrollRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
   const wakeUpTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -201,13 +202,12 @@ export const PrvAi = () => {
 
   // Ping backend on mount to wake up Render free tier service
   useEffect(() => {
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
     if (backendUrl) {
       fetch(`${backendUrl}/ping`, { method: "GET", mode: "no-cors" }).catch(() => {
         // Silently ignore ping errors
       });
     }
-  }, []);
+  }, [backendUrl]);
 
   const handleSend = useCallback(async () => {
     if (!input.trim() || isLoading) return;
@@ -239,7 +239,16 @@ export const PrvAi = () => {
     abortRef.current = new AbortController();
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/chat`, {
+      if (!backendUrl) {
+        setMessages((prev) => [
+          ...prev,
+          { role: "model", text: "Backend is not configured. Please set NEXT_PUBLIC_BACKEND_URL." },
+        ]);
+        setIsLoading(false);
+        return;
+      }
+
+      const res = await fetch(`${backendUrl}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userMessage }),
