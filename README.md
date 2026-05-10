@@ -203,7 +203,7 @@ Useful resources and dependencies that are used in Space Portfolio.
 - [framer-motion](https://www.npmjs.com/package/framer-motion): ^12.38.0
 - [maath](https://www.npmjs.com/package/maath): ^0.10.8
 - [next](https://www.npmjs.com/package/next): 16.2.5
-- [postcss](https://www.npmjs.com/package/postcss): ^8
+- [postcss](https://www.npmjs.com/package/postcss): 8.5.10
 - [react](https://www.npmjs.com/package/react): 19.2.6
 - [react-dom](https://www.npmjs.com/package/react-dom): 19.2.6
 - [react-icons](https://www.npmjs.com/package/react-icons): ^5.6.0
