@@ -202,11 +202,13 @@ export const PrvAi = () => {
 
   // Ping backend on mount to wake up Render free tier service
   useEffect(() => {
-    if (backendUrl) {
-      fetch(`${backendUrl}/ping`, { method: "GET", mode: "no-cors" }).catch(() => {
-        // Silently ignore ping errors
-      });
+    if (!backendUrl) {
+      console.warn("[PRV AI] NEXT_PUBLIC_BACKEND_URL is not configured. Wake-up ping skipped.");
+      return;
     }
+    fetch(`${backendUrl}/ping`, { method: "GET", mode: "no-cors" }).catch(() => {
+      // Silently ignore ping errors
+    });
   }, [backendUrl]);
 
   const handleSend = useCallback(async () => {
@@ -240,6 +242,7 @@ export const PrvAi = () => {
 
     try {
       if (!backendUrl) {
+        console.warn("[PRV AI] NEXT_PUBLIC_BACKEND_URL is not configured. Cannot send message.");
         setMessages((prev) => [
           ...prev,
           { role: "model", text: "Backend is not configured. Please set NEXT_PUBLIC_BACKEND_URL." },
