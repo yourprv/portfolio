@@ -1,4 +1,24 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+
+const ALLOWED_ORIGINS = [
+  "https://yourprvportfolio.vercel.app",
+  "http://localhost:3000",
+];
+
+function corsHeaders(req: NextRequest): HeadersInit {
+  const origin = req.headers.get("origin") || "";
+  const allowOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  return {
+    "Access-Control-Allow-Origin": allowOrigin,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Max-Age": "86400",
+  };
+}
+
+export async function OPTIONS(req: NextRequest) {
+  return new NextResponse(null, { status: 204, headers: corsHeaders(req) });
+}
 
 // Simple in-memory rate limiter (per-instance in serverless)
 // NOTE: In production, use Redis/Upstash for distributed rate limiting
@@ -138,6 +158,7 @@ export async function POST(req: NextRequest) {
         {
           status: 429,
           headers: {
+            ...corsHeaders(req),
             "X-RateLimit-Remaining": "0",
             "X-RateLimit-Reset": String(rateLimit.resetIn),
           },
@@ -285,6 +306,7 @@ export async function POST(req: NextRequest) {
 
     return new Response(stream, {
       headers: {
+        ...corsHeaders(req),
         "Content-Type": "text/plain; charset=utf-8",
         "Cache-Control": "no-cache",
         "X-RateLimit-Remaining": String(rateLimit.remaining),
@@ -298,6 +320,6 @@ export async function POST(req: NextRequest) {
       console.error("Chat API error:", err);
     }
 
-    return new Response("Internal server error", { status: 500 });
+    return new Response("Internal server error", { status: 500, headers: corsHeaders(req) });
   }
 }
