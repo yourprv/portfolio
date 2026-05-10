@@ -11,8 +11,8 @@ const ADDITIONAL_PROJECTS = [
     description:
       "A customized 3D portfolio showcasing professional work with immersive animations and interactive elements. Features a stunning space-themed design with Three.js integration, smooth Framer Motion transitions, and responsive layouts. Perfect for developers and creatives looking to make a lasting impression with their online presence.",
     image: "/1.png",
-    sourceCode: "https://example.com",
-    website: "https://example.com",
+    sourceCode: "https://github.com/yourprv/portfolio",
+    website: "https://yourprvportfolio.vercel.app/",
   },
 ];
 
