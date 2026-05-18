@@ -42,6 +42,8 @@ const glowVariants = {
 };
 
 export const Projects = () => {
+  const HOMEPAGE_PROJECTS = PROJECTS.filter((p) => p.title !== "SEE GPA Calculator");
+
   return (
     <section
       id="projects"
@@ -79,7 +81,7 @@ export const Projects = () => {
         viewport={{ once: true, margin: "-50px" }}
         className="h-full w-full flex flex-col md:flex-row gap-10 px-10"
       >
-        {PROJECTS.map((project, index) => (
+        {HOMEPAGE_PROJECTS.map((project, index) => (
           <ProjectCard
             key={project.title}
             src={project.image}

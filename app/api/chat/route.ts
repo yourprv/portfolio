@@ -119,9 +119,11 @@ Fullstack: React Native, Tauri, Docker, Figma
 Other: Go
 
 ### PROJECTS:
+### PROJECTS:
 1. Business POS - A professional Point of Sale system for internal use across 4-5 devices. Features inventory management, sales tracking, receipt generation, and real-time analytics. Built for Fashion99 (CEO: Rabin B.C).
 2. Hotel Maxx Redesign - A world-class 4-star hotel website with AI integration: AI-powered chatbots, smart room recommendations, dynamic pricing, automated booking confirmations, personalized suggestions. Live at hotel-website-yourprv.vercel.app
-3. GPA Calculator - Trusted open-source NEB SEE GPA Calculator for Nepali students. Simple, fast, and reliable. Live at see-gpa-calculator.vercel.app
+3. NEB GPA Calculator - Simple NEB GPA calculator for 11th and 12th students. Live at nebgpacalculator.vercel.app
+4. SEE GPA Calculator - Trusted open-source SEE GPA Calculator for SEE students. Simple, fast, and reliable. Live at see-gpa-calculator.vercel.app
 
 ### TESTIMONIALS:
 Rabin B.C (CEO of Fashion99): "Working with YourPRV on our POS system was an absolute game-changer. The system streamlined our entire retail operation. Professional, efficient, and delivered beyond expectations!"

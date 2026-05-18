@@ -276,9 +276,17 @@ export const PROJECTS: Project[] = [
     website: "https://hotel-website-yourprv.vercel.app",
   },
   {
-    title: "GPA Calculator",
+    title: "NEB GPA Calculator",
     description:
-      "Trusted and verified open source NEB SEE GPA Calculator for SEE students. Accurately calculate your Secondary Education Examination Grade Point Average with support for all subjects and grading criteria. Simple, fast, and reliable tool helping thousands of Nepali students track their academic performance.",
+      "Simple NEB GPA calculator for 11th and 12th students. Calculate semester and annual GPA using NEB grading criteria with a clean, easy-to-use interface.",
+    image: "/5.png",
+    sourceCode: "https://github.com/yourprv/NEB-GPA-CALCULATOR",
+    website: "https://nebgpacalculator.vercel.app",
+  },
+  {
+    title: "SEE GPA Calculator",
+    description:
+      "Trusted and verified open source SEE GPA Calculator for SEE students. Accurately calculate your Secondary Education Examination Grade Point Average with support for all subjects and grading criteria. Simple, fast, and reliable tool helping thousands of Nepali students track their academic performance.",
     image: "/3.png",
     sourceCode: "https://github.com/yourprv/SEE-GPA-CALCULATOR",
     website: "https://see-gpa-calculator.vercel.app",
